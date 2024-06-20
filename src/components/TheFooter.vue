@@ -10,9 +10,11 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
+// @import '../assets/scss/style';
+
 footer {
-    background: #87f;
+    background: #84f;
     padding: 25px 0;
     text-align: center;
     font-size: 1.2rem;

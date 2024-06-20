@@ -20,7 +20,7 @@ export default {
 };
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 form {
     max-width: 600px;
     margin: 30px auto 60px auto;
@@ -31,11 +31,10 @@ form {
     width: 100%;
     padding: 20px;
     border: none;
-}
-
-#busca:focus,
-#busca:hover {
-    transform: scale(1.1);
+        &:hover,
+        &:focus {
+            transform: scale(1.1);
+    }
 }
 
 #lupa {

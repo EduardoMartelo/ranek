@@ -2,8 +2,8 @@
     <section class="produtos-container">
         <div v-if="produtos && produtos.length" class="produtos">
             <div 
-            v-for="produto in produtos" 
-            :key="produto.id"
+            v-for="(produto, index) in produtos" 
+            :key="index"
             class="produto"
             >
                 <router-link to="/">
@@ -13,6 +13,7 @@
                     <p>{{ produto.descricao }}</p>
                 </router-link>
             </div>
+                <ProdutosPaginar :produtosTotal="produtosTotal" :produtosPorPagina="produtosPorPagina"/>
         </div>
         <div v-else-if="produtos && produtos.length === 0">
             <p class=".sem-resultados">Busca sem resultados. tente outro termo</p>
@@ -22,14 +23,20 @@
 </template>
 
 <script>
-import { api } from "@/services.js"
+import ProdutosPaginar from '@/components/ProdutosPaginar.vue';
+import { api } from "@/services.js";
 import { serialize } from "@/helpers.js";
 
 export default {
+    name: "ProdutosLista",
+    components: {
+        ProdutosPaginar
+    },
     data() {
         return {
             produtos: null,
             produtosPorPagina: 9,
+            produtosTotal: 0
         };
     },
     computed: {
@@ -41,6 +48,7 @@ export default {
     methods: {
         getProdutos() {
             api.get(this.url).then(response => {
+                this.produtosTotal = Number(response.headers['x-total-count']);
                 this.produtos = response.data;
             });
         }
@@ -57,7 +65,9 @@ export default {
 
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
+// @import '../assets/scss/style';
+
  .produtos-container {
     max-width: 1000px;
     margin: 0 auto;
@@ -76,13 +86,12 @@ export default {
     background: #fff;
     border-radius: 4px;
     transition: all 0.2s;
-}
-
-.produto:hover {
-    box-shadow: 0 6px 12px rgba(30, 60, 90, 0.2);
-    transform: scale(1.1);
-    position: relative;
-    z-index: 1;
+        &:hover {
+        box-shadow: 0 6px 12px rgba(30, 60, 90, 0.2);
+        transform: scale(1.1);
+        position: relative;
+        z-index: 1;
+    }
 }
 
 .produto img {
