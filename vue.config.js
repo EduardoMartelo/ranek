@@ -3,10 +3,10 @@ module.exports = defineConfig({
   transpileDependencies: true
 })
 
-export default defineConfig({
-  css: {
-    preprocessorOptions: {
-      scss: { additionalData: '@import "src/scss/style.scss'},
-    }
-  }
-})
+// export default defineConfig({
+//   css: {
+//     preprocessorOptions: {
+//       scss: { additionalData: '@import "src/scss/style.scss'},
+//     }
+//   }
+// })
