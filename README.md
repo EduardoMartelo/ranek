@@ -13,7 +13,7 @@ npm run serve
 ### api
 ```
 rodar api json 
-$json-server --watch ranek.json
+json-server --watch ranek.json
 ```
 
 ### Compiles and minifies for production
