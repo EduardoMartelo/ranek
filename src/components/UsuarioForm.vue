@@ -7,9 +7,11 @@
         <label for="senha">senha</label>
         <input id="senha" name="senha" type="password" v-model="senha">
         <label for="cep">Cep</label>
-        <input id="cep" name="cep" type="text" v-model="cep">
+        <input id="cep" name="cep" type="text" v-model="cep" @keyup="preencherCep">
         <label for="rua">Rua</label>
         <input id="rua" name="rua" type="text" v-model="rua">
+        <label for="complemento">Comple</label>
+        <input id="complemento" name="complemento" type="text" v-model="complemento">
         <label for="numero">Número</label>
         <input id="numero" name="numero" type="text" v-model="numero">
         <label for="bairro">Bairro</label>
@@ -25,14 +27,39 @@
 </template>
 
 <script>
-import{mapFields} from "@/helpers.js"
+import { mapFields } from "@/helpers.js";
+import { getCep } from "@/services.js"
 export default {
     computed: {
         ...mapFields({
-            fields: ["nome", "email", "senha", "rua", "cep", "numero", "bairro", "cidade", "estado"],
+            fields: [
+                "nome", 
+                "email", 
+                "senha", 
+                "rua",
+                "complemento", 
+                "cep", 
+                "numero", 
+                "bairro", 
+                "cidade", 
+                "estado"
+            ],
             base: "usuario",
             mutation: "UPDATE_USUARIO"
         }),
+    },
+    methods: {
+        preencherCep() {
+            const cep = this.cep.replace(/\D/g, "");
+            if(cep.length === 8) {
+                getCep(cep).then(response => {
+                    this.rua = response.data.logradouro;
+                    this.bairro = response.data.bairro;
+                    this.cidade = response.data.localidade;
+                    this.estado = response.data.uf;
+                })
+            }
+        }
     }   
 };
 </script>

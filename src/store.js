@@ -15,6 +15,7 @@ export default new Vuex.Store({
       senha: "",
       cep: "",
       rua: "",
+      complemento: "",
       numero: "",
       bairro: "",
       cidade: "",
