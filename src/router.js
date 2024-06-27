@@ -5,9 +5,9 @@ import Produto from "./views/Produto.vue";
 import Login from "./views/Login.vue";
 import Usuario from "./views/usuario/Usuario.vue";
 import UsuarioProdutos from "./views/usuario/UsuarioProdutos.vue";
-import UsuarioEditar from "./views/usuario/UsuarioEditar.vue";
-import UsuarioCompras from "./views/usuario/UsuarioCompras.vue";
 import UsuarioVendas from "./views/usuario/UsuarioVendas.vue";
+import UsuarioCompras from "./views/usuario/UsuarioCompras.vue";
+import UsuarioEditar from "./views/usuario/UsuarioEditar.vue";
 
 Vue.use(Router);
 
@@ -29,10 +29,10 @@ export default new Router({
     {
       path: "/login",
       name: "login",
-      component: Login,
+      component: Login
     },
     {
-      path: "/Usuario",
+      path: "/usuario",
       component: Usuario,
       children: [
         {
@@ -54,7 +54,7 @@ export default new Router({
           path: "editar",
           name: "usuario-editar",
           component: UsuarioEditar
-        },
+        }
       ]
     }
   ],

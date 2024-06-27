@@ -1,13 +1,10 @@
 <template>
-    <p>Lista compras</p>
+  <p>Lista de Compras</p>
 </template>
 
 <script>
-export default {
-
-}
+export default {};
 </script>
 
 <style>
-
 </style>

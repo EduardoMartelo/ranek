@@ -1,13 +1,10 @@
 <template>
-<p>Editar</p>
+  <p>Lista de Editar</p>
 </template>
 
 <script>
-export default {
-
-}
+export default {};
 </script>
 
 <style>
-
 </style>

@@ -1,13 +1,10 @@
 <template>
-    <p>lista vendas</p>
+  <p>Lista de Vendas</p>
 </template>
 
 <script>
-export default {
-
-}
+export default {};
 </script>
 
 <style>
-
 </style>
