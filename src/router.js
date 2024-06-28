@@ -32,7 +32,7 @@ export default new Router({
       component: Login
     },
     {
-      path: "/usuario",
+      path: "/Usuario",
       component: Usuario,
       children: [
         {
