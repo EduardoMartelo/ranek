@@ -82,7 +82,7 @@ export default {
 
 img {
   margin-bottom: 30px;
-  box-shadow: 0 4px 8px rgba(30, 60, 903, .2);
+  box-shadow: 0 4px 8px rgba(30, 60, 90, 0.2);
   border-radius: 4px;
 }
 
@@ -90,5 +90,4 @@ img {
   margin-top: 60px;
   width: 200px;
 }
-
 </style>

@@ -33,9 +33,11 @@ export default {
       const form = new FormData();
 
       const files = this.$refs.fotos.files;
+      console.log(files);
       for (let i = 0; i < files.length; i++) {
         form.append(files[i].name, files[i]);
       }
+
       form.append("nome", this.produto.nome);
       form.append("preco", this.produto.preco);
       form.append("descricao", this.produto.descricao);
