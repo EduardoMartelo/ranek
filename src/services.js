@@ -1,9 +1,9 @@
 import axios from 'axios';
 
-const url = 'https://ranekapi.origamid.dev/json';
+const url = "http://ranekapi.origamid.final/wp-json";
 
 const axiosInstance = axios.create({
-  baseURL: url + '/api',
+  baseURL: url + "/api",
 });
 
 axiosInstance.interceptors.request.use(

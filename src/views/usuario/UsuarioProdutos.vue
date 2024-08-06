@@ -39,9 +39,9 @@ export default {
           .then(() => {
             this.getUsuarioProdutos();
           })
-          .catch(error => {
-            console.log(error.reponse);
-          });
+          // .catch(error => {
+          //   console.log(error.reponse);
+          // });
       }
     }
   },
@@ -54,6 +54,7 @@ export default {
     if (this.login) {
       this.getUsuarioProdutos();
     }
+    document.title = "Usuário";
   }
 };
 </script>
