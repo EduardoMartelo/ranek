@@ -8,6 +8,7 @@ import UsuarioProdutos from "./views/usuario/UsuarioProdutos.vue";
 import UsuarioVendas from "./views/usuario/UsuarioVendas.vue";
 import UsuarioCompras from "./views/usuario/UsuarioCompras.vue";
 import UsuarioEditar from "./views/usuario/UsuarioEditar.vue";
+import PaginaNaoEncontrada from "./views/PaginaNaoEncontrada.vue";
 
 Vue.use(Router);
 
@@ -15,6 +16,10 @@ const router = new Router({
   mode: "history",
   base: process.env.BASE_URL,
   routes: [
+    {
+      path: "*",
+      component: PaginaNaoEncontrada
+    },
     {
       path: "/",
       name: "home",
@@ -35,7 +40,7 @@ const router = new Router({
       path: "/usuario",
       component: Usuario,
       meta: {
-        login: true,
+        login: true
       },
       children: [
         {
@@ -68,10 +73,10 @@ const router = new Router({
 
 router.beforeEach((to, from, next) => {
   if (to.matched.some(record => record.meta.login)) {
-    if(!window.localStorage.token) {
-      next("/login")
+    if (!window.localStorage.token) {
+      next("/login");
     } else {
-      next ();
+      next();
     }
   } else {
     next();

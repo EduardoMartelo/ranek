@@ -46,12 +46,10 @@ export default {
   methods: {
     getProdutos() {
       this.produtos = null;
-      window.setTimeout(() => {
-        api.get(this.url).then(response => {
-          this.produtosTotal = Number(response.headers["x-total-count"]);
-          this.produtos = response.data;
-        });
-      }, 1500);
+      api.get(this.url).then(response => {
+        this.produtosTotal = Number(response.headers["x-total-count"]);
+        this.produtos = response.data;
+      });
     }
   },
   watch: {
@@ -80,11 +78,10 @@ export default {
 
 @media screen and (max-width: 500px) {
   .produtos {
-  grid-template-columns: repeat(2, 1fr);
-  grid-gap: 10px;
-  margin: 10px;
-}
-
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 10px;
+    margin: 10px;
+  }
 }
 
 .produto {

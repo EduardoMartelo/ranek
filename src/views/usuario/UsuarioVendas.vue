@@ -17,6 +17,7 @@
         </div>
       </div>
     </div>
+    <PaginaCarregando v-else/>
   </section>
 </template>
 
@@ -84,12 +85,11 @@ h3 {
 
 @media screen and (max-width: 500px) {
   .entrega {
-    grid-auto-columns: 1fr;
-    gap: 10px;
+    grid-template-columns: 1fr;
+    grid-gap: 10px;
   }
   h3 {
-  margin: 0px;
-  justify-self: start;
+    justify-self: start;
   }
 }
 </style>

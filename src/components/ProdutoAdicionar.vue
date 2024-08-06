@@ -33,7 +33,6 @@ export default {
       const form = new FormData();
 
       const files = this.$refs.fotos.files;
-      console.log(files);
       for (let i = 0; i < files.length; i++) {
         form.append(files[i].name, files[i]);
       }
@@ -46,11 +45,18 @@ export default {
 
       return form;
     },
-    adicionarProduto() {
+    async adicionarProduto(event) {
       const produto = this.formatarProduto();
-      api.post("/produto", produto).then(() => {
-        this.$store.dispatch("getUsuarioProdutos");
-      });
+
+      const button = event.currentTarget;
+      button.value = "Adicionando...";
+      button.setAttribute("disabled", "");
+
+      await api.post("/produto", produto);
+      await this.$store.dispatch("getUsuarioProdutos");
+
+      button.removeAttribute("disabled");
+      button.value = "Adicionar Produto";
     }
   }
 };
